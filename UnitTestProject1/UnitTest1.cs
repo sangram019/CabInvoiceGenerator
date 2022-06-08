@@ -14,5 +14,14 @@ namespace InvoiceTester
             Assert.AreEqual(actual, 65);
         }
 
+        [Test]
+        public void InputInInteger_ShouldReturn_MultipleRides_TotalFare()
+        {
+            InvoiceGenerator invoice = new InvoiceGenerator(RideType.PREMIUM);
+            Ride[] rides = { new Ride(2, 3), new Ride(4, 5) };
+            double result = invoice.CalculateMultipleRides(rides);
+            Assert.AreEqual(result, 23, 45);
+        }
+
     }
 }
